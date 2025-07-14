@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<script src="colorPicker.js"></script>
+
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const picker = vqxify23.colorPicker({
+                containerWhereIsCreated: ".colorPicker > .box",
+
+                colorPickerData: {
+                    width: 220,
+                    height: 180,
+                    borderRadius: 10
+                },
+
+                hueBarData: {
+                    width: 20,
+                    height: 180,
+                    borderRadius: 5
+                },
+
+                onColorChange: (color) => {
+                    document.querySelector('.colorPicker').style.background = color;
+                }
+            });
+
+            setTimeout(() => {
+                console.log(picker.getColor('hex'))
+            }, 5000);
+
+            // picker.getColor('hex') or picker.getColor('rgb')
+        });
+    </script>
+
+    <style>
+        .colorPicker {
+            position: absolute;
+            inset: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: black;
+        }
+
+        .colorPicker>.box {
+            width: 400px;
+            height: 400px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background: green;
+        }
+    </style>
+
+    <div class="colorPicker">
+        <div class="box"></div>
+    </div>
+
+</body>
+</html>
